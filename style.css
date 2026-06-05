@@ -124,6 +124,7 @@ body.dark-theme .moon-icon { display: none; }
     background-color: var(--link-color);
     color: white;
 }
+
 /* --- 5. KIELEN VAIHTO JA LOGIIKKA --- */
 .kieli-nappi {
     background: transparent;
