@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600;700&display=swap');
+
+/* ── Runko ja pääsäiliö ── */
+.atm-container {
+    position: relative;
+    width: 500px;
+    height: 800px;
+    margin: 20px auto;
+    border: 5px solid #222;
+    background-color: #000;
+    overflow: visible;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+#atm-image {
+    width: 500px;
+    height: 800px;
+    display: block;
+    z-index: 1;
+}
+
+/* ── Modal (Näyttöruutu taustalla) ── */
+.modal-overlay {
+    position: absolute !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 500px !important;
+    height: 800px !important;
+    display: none;
+    z-index: 100;
+    background-color: transparent;
+    pointer-events: none !important;
+}
+
+#modal-container.modal-content {
+    position: absolute !important;
+    top: 53px !important;
+    left: 74px !important;
+    height: 394px !important;
+    width: 430px !important;
+    padding: 20px !important;
+    border-radius: 1px;
+    border: 5px solid #000;
+    background-color: #ffffff !important;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    pointer-events: auto !important;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Screen content ── */
+#screen-content {
+    position: absolute;
+    top: 60px;
+    left: 300px;
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+#status-msg {
+    margin: 0;
+    font-size: 24px;
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+#instruction-msg {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #444;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* ── Automaatin Valikko ── */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 32px !important;
+    width: 100%;
+    text-align: left;
+    padding-left: 15px;
+    margin-top: -20px !important;
+    box-sizing: border-box;
+}
+
+.menu-item {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.03em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    transition: color 0.15s ease;
+}
+
+.menu-item:hover {
+    color: #0045a1;
+}
+
+/* ── Näytön tekstityylit (Modal body) ── */
+#modal-body h2 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.01em;
+}
+
+#modal-body p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-family: 'Inter', sans-serif;
+    color: #555;
+    line-height: 1.5;
+}
+
+#modal-body h1 {
+    font-size: 32px;
+    margin: 10px 0;
+    color: #0045a1;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 6px rgba(0, 69, 161, 0.15);
+}
+
+.varoitus-teksti {
+    color: #c00;
+    font-weight: bold;
+}
+
+/* Palauteikkunat */
+.palaute-ruutu {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* ── Painikkeet & PIN-syöte ── */
+#start-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #0045a1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.03em;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 69, 161, 0.35);
+}
+
+#start-btn:hover {
+    background-color: #002d6b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 69, 161, 0.45);
+}
+
+#start-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(0, 69, 161, 0.2);
+}
+
+.btn-secondary { background-color: #666 !important; }
+.btn-danger    { background-color: #c00 !important; }
+
+#pin-input {
+    width: 120px;
+    height: 45px;
+    font-size: 28px;
+    text-align: center;
+    margin: 15px 0;
+    border: 3px solid #333;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    letter-spacing: 8px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#pin-input:focus {
+    border-color: #0045a1;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(0, 69, 161, 0.15);
+    outline: none;
+}
+
+/* ── Klikattavat näkymättömät alueet ── */
+.area {
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+    background: transparent;
+}
+
+#screen         { top: 55px;  left: 79px;  width: 420px; height: 378px; }
+#buttons-left   { top: 100px; left: 8px;   width: 60px;  height: 300px; }
+#card-slot, 
+#cardslot       { top: 555px; left: 26px;  width: 125px; height: 125px; }
+#keypad         { top: 525px; left: 180px; width: 275px; height: 218px; }
+#check-slot     { top: 465px; left: 210px; width: 220px; height: 34px;  }
+
+/* ── Fyysinen Näppäimistömatriisi ── */
+#keypad-matrix {
+    position: absolute;
+    top: 535px;
+    left: 187px;
+    width: 260px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.3fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+    z-index: 10;
+}
+
+.pin-btn {
+    cursor: pointer;
+}
+
+#keypad-matrix div:nth-child(4n) {
+    border-radius: 20px;
+}
+
+.fn-cancel { border-color: darkred !important; }
+.fn-clear  { border-color: orange !important;  }
+.fn-enter  { border-color: green !important;   }
+
+/* ── Sivunapit ── */
+#side-buttons-container {
+    position: absolute;
+    top: 117px;
+    left: 15px;
+    width: 46px;
+    height: 377px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    z-index: 20;
+}
+
+/* ── Liikkuva Pankkikortti ── */
+#moving-card {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    width: 103px;
+    height: auto;
+    bottom: -140px;
+    left: 40px;
+    transition: bottom 1.5s ease-in-out, opacity 1.2s ease-in-out;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* ── Info- & Sign Out -painikkeet ── */
+#info-btn {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    z-index: 99999; /* 👈 NOSTETTU PÄÄLLIMMÄISEKSI, jotta klikkaus osuu! */
+    padding: 8px 16px;
+    background-color: #0045a1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    pointer-events: auto; /* 👈 Varmistetaan, että ottaa klikkaukset vastaan */
+}
+
+#signout-area {
+    position: absolute;
+    left: 5px;
+    top: 50px;
+    width: 60px;
+    height: 40px;
+    z-index: 9999;
+    cursor: pointer;
+    background: #c00;
+    border: 2px solid #000;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+}
+
+#signout-area:hover {
+    background: #900;
+}
+
+/* ============================================================
+   🧾 VALKOINEN PAPERIKUITTI (LIIKKUU ALASPÄIN)
+   ============================================================ */
+
+/* Kuittiaukon paikka automaatissa — toimii ankkurina */
+#receipt-slot {
+    position: absolute;
+    top: 473px; 
+    left: 30px;
+    width: 116px;
+    height: 15px;
+    overflow: visible; /* Sallii kuitun valumisen raon yli alaspäin */
+    z-index: 99;
+}
+
+/* Valkoinen paperikuitti, joka on aluksi rullattuna piiloon raon sisälle */
+#tulostettu-kuitti {
+    position: absolute;
+    top: 5px; /* Alkaa raon sisältä */
+    left: 5px;
+    width: 106px;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    line-height: 1.3;
+    padding: 10px 6px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px dashed #ccc; /* Repäisyreuna pohjalla */
+    
+    /* Alkutila: Piilossa raon yläosassa */
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 2.5s ease-out, opacity 0.4s ease-out;
+    pointer-events: none;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+/* Luokka, joka rullaa kuitun ALASPÄIN ulos automaatista */
+#tulostettu-kuitti.tulostaa {
+    opacity: 1;
+    transform: translateY(10px); /* Liukuu raosta alaspäin näkyviin */
+}

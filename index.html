@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minun Portfolioni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Portfolio</div>
+    
+    <div style="display: flex; gap: 12px; align-items: center;">
+        
+        <button class="kieli-nappi" id="kieli-nappi" aria-label="Vaihda kieltä">
+            <span class="kieli-en">EN</span>
+            <span class="kieli-fi">FI</span>
+        </button>
+        
+        <button id="theme-toggle" class="teema-nappi-ikoni" aria-label="Vaihda teemaa">
+            <svg class="sun-icon"   xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        
+    </div>
+</nav>
+
+    <main class="sisalto">
+        
+        <div class="lang-fi">
+            <h1>Moi, olen Vladislav 👋</h1>
+            <p>Tervetuloa portfoliooni! Voit vaihtaa sivun väriä ja kieltä yläpalkin ikoneista.</p>
+            <h2>Projektit</h2>
+        </div>
+        <div class="lang-en">
+            <h1>Hi, I'm Vladislav 👋</h1>
+            <p>Welcome to my portfolio! You can change the theme and language from the top bar icons.</p>
+            <h2>Projects</h2>
+        </div>
+
+        <div class="projekti">
+            <div class="lang-fi">
+                <h3>Pankkiautomaatti</h3>
+                <p>HTML-, CSS- ja JavaScript-kielillä toteutettu pankkiautomaattisovellus, joka simuloi tilin saldoa, nostoja ja talletuksia. Projekti on tehty yhteistyössä kaverini kanssa, ja koodi löytyy hänen repositoriostaan.</p>
+                
+                <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                    <a href="./Pankkiautomaatti/index.html" class="some-linkki">Testaa livenä 🎮</a>
+                    <a href="https://github.com/Alarmi0/Pankkiautomaatti" target="_blank" class="some-linkki" style="border-color: #8b5cf6;">Katso koodi (GitHub) ↗</a>
+                </div>
+            </div>
+            
+            <div class="lang-en">
+                <h3>ATM Application</h3>
+                <p>An ATM simulator application built using HTML, CSS, and JavaScript to manage account balances, cash withdrawals, and deposits. This project was co-developed with a friend and is hosted on their GitHub repository.</p>
+                
+                <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                    <a href="./Pankkiautomaatti/index.html" class="some-linkki">Try Live Demo 🎮</a>
+                    <a href="https://github.com/Alarmi0/Pankkiautomaatti" target="_blank" class="some-linkki" style="border-color: #8b5cf6;">View Code (GitHub) ↗</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="lang-fi">Ota yhteyttä & Seuraa</h2>
+        <h2 class="lang-en">Contact & Follow</h2>
+        
+        <div class="linkit-lista">
+            <a href="https://www.linkedin.com/in/vladislav-solousov-59ba9a3aa/" target="_blank" class="some-linkki linkedin">LinkedIn</a>
+            <a href="https://github.com/kxne-bliup" target="_blank" class="some-linkki github">GitHub</a>
+        </div>
+    </main>
+
+    <script>
+        // Teeman vaihto (Dark/Light mode)
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+
+        // Kielen vaihto (FI/EN)
+        const kieliNappi = document.getElementById('kieli-nappi');
+        kieliNappi.addEventListener('click', () => {
+            document.body.classList.toggle('lang-en');
+        });
+    </script>
+</body>
+</html>
