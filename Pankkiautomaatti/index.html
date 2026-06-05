@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankkiautomaatti Projekti</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="atm-container">
+        <img src="Pankkiautomatti.png" alt="ATM" id="atm-image">
+        <img src="Pankkikortti.jpg" id="moving-card" alt="Pankkikortti">
+
+        <div id="screen-content">
+            <h2 id="status-msg" style="display:none;">TERVETULOA</h2>
+            <p id="instruction-msg" style="display:none;">SYÖTÄ KORTTI</p>
+        </div>
+
+        <div class="area" id="screen" onclick="handleAction('NÄYTTÖ')"></div>
+        <div class="area" id="buttons-left" onclick="handleAction('SIVUNAPIT', event)"></div>
+        <div id="signout-area" onclick="signOut()">SIGN OUT</div>
+        
+        <div class="area" id="card-slot" onclick="processCard()"></div>
+        
+        <button id="info-btn" onclick="showInfo()">INFO</button>
+
+        
+        <div id="keypad-matrix">
+            <div class="pin-btn" onclick="handlePinButton('1')"></div>
+            <div class="pin-btn" onclick="handlePinButton('2')"></div>
+            <div class="pin-btn" onclick="handlePinButton('3')"></div>
+            <div class="pin-btn fn-cancel" onclick="handlePinButton('CANCEL')"></div>
+
+            <div class="pin-btn" onclick="handlePinButton('4')"></div>
+            <div class="pin-btn" onclick="handlePinButton('5')"></div>
+            <div class="pin-btn" onclick="handlePinButton('6')"></div>
+            <div class="pin-btn fn-clear" onclick="handlePinButton('CLEAR')"></div>
+
+            <div class="pin-btn" onclick="handlePinButton('7')"></div>
+            <div class="pin-btn" onclick="handlePinButton('8')"></div>
+            <div class="pin-btn" onclick="handlePinButton('9')"></div>
+            <div class="pin-btn fn-enter" onclick="handlePinButton('ENTER')"></div>
+
+            <div class="pin-btn" onclick="handlePinButton('*')"></div>
+            <div class="pin-btn" onclick="handlePinButton('0')"></div>
+            <div class="pin-btn" onclick="handlePinButton('#')"></div>
+            <div class="pin-btn blank-btn"></div>
+        </div>
+        <div id="receipt-slot"></div>
+
+    <div id="cardslot" onclick="processCard()">
+        </div>
+        
+        <div class="area" id="check-slot" onclick="handleAction('CHECK SLOT')"></div>
+    </div> <div id="welcome-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" id="modal-container">
+            <div id="modal-body">
+                <h1>KORTTI TUNNISTETTU</h1>
+                <p>Luetaan tietoja...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
