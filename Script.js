@@ -81,7 +81,7 @@ $('#lang').onclick = () => { lang = lang === 'en' ? 'fi' : 'en'; applyLang(); };
 
 /* =========================================================
    THEME: follows the system, updates live if the system changes.
-   The button overrides it until the page is reloaded.
+   The button overrides it until the page is reloaded.d
    ========================================================= */
 function setTheme(t) {
   root.classList.add('theming');
